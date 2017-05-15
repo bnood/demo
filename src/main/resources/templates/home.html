@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title></title>
+</head>
+<script type="text/javascript" th:src="@{/jweixin-1.0.0.js}"></script>
+<script type="text/javascript" th:src="@{/jquery-1.9.1.min.js}"></script>
+
+<script>
+
+    $(function(){
+
+        var appid = "wx868acba96a3f5be8";
+        var appsecret = "aec99ab8c9ee4867616a8f8d5a73c47e";
+        var accesstoken = "ZA06O_Dwec0sQZ7n7cByWmtivVz6F2K8g27R-mIe7-F3K7D6JRpQmAFahjoHXulMp2oPYT6AtCKN5j0EhMssfUQ_gPlcDMxEMdjtiNlU0kIWBBAieMXzB8GJfCcDE94AKWKbAJAUGU";
+        var ticket = "kgt8ON7yVITDhtdwci0qeSip57KC1vEnAwskGLjN09oiS8tYon0lnDLKSfkB_yRNtbno2AIjz-4VIFdfJzKLQA";
+//        getAccessToken(appid,appsecret);
+//          getTicket(accesstoken)
+//          testConfig();
+    });
+
+
+
+
+
+
+
+
+    function getSignature(ticket){
+        $.ajax({
+            url: 'signature/get',
+            data: {ticket: ticket},
+            success: function (result) {
+                console.info(result)
+            }
+        });
+    }
+
+    function getTicket(accesstoken){
+        $.ajax({
+            url: 'https://api.weixin.qq.com/cgi-bin/ticket/getticket',
+            data: {access_token: accesstoken, type: "jsapi"},
+            success: function (result) {
+                console.info(result)
+            }
+        });
+    }
+
+    function getAccessToken(appid,appsecret){
+        $.ajax({
+            url: 'https://api.weixin.qq.com/cgi-bin/token',
+            data: {grant_type: "client_credential", appid: appid, secret: appsecret},
+            success: function (result) {
+                console.info(result)
+            }
+        });
+    }
+
+
+
+
+    function testConfig() {
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wx868acba96a3f5be8', // 必填，公众号的唯一标识
+            timestamp: 1494571993, // 必填，生成签名的时间戳
+            nonceStr: '8f439897-87fe-477e-bc30-c482de04ce23', // 必填，生成签名的随机串
+            signature: 'd923bd882ce9966d91f791d50bb22253b0d240f7',// 必填，签名，见附录1
+            jsApiList: ["getLocation","scanQRCode"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+
+        wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wx868acba96a3f5be8', // 必填，公众号的唯一标识
+            timestamp: 1494574488, // 必填，生成签名的时间戳
+            nonceStr: '5be62440-b3ae-45e2-b19f-1d0f5b06dbb0', // 必填，生成签名的随机串
+            signature: 'c55c6ab993a6aedd794d5f619d7a04ed5bc450e0',// 必填，签名，见附录1
+            jsApiList: ["chooseImage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+        });
+
+
+        wx.ready(function(){
+            /*var flag = confirm("是否扫描");
+             if(flag){
+             wx.scanQRCode({
+             needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+             scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+             success: function (res) {
+             var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+             console.info(result);
+             }
+             });
+             }*/
+
+            wx.chooseImage({
+                count: 1, // 默认9
+                sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                success: function (res) {
+                    var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                }
+            });
+        });
+
+
+        /*wx.scanQRCode({
+         needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+         scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+         success: function (res) {
+         var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+         console.info(result);
+         }
+         });*/
+
+        wx.ready(function(){
+//                alert("ready");
+        });
+
+        wx.error(function(res){
+            alert("config error");
+        });
+    }
+
+</script>
+
+<body>
+hell33werq111
+<form action="save" method="post">
+    <input name="name"/>
+    <input name="age"/>
+    <input type="submit"/>
+</form>
+</body>
+</html>

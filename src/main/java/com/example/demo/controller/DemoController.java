@@ -17,8 +17,8 @@ import java.util.List;
 public class DemoController {
 
     @GetMapping
-    public String list() {
-        return "list";
+    public String home() {
+        return "home";
     }
 
     @PostMapping("/save")
