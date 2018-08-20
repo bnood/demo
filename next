@@ -1,0 +1,48 @@
+VM
+http://blog.hesey.net/
+http://blog.csdn.net/wanghuiqi2008/article/details/50724676（mat）
+http://blog.csdn.net/kingofworld/article/details/17718587（jvm内存模型）
+ps -ef|grep java 查看java进程
+jps -l 查看java进程
+jmap -heap pid
+jmap -histo:live pid
+jmap -dump:[live,]format=b,file=<filename>
+jstat -gcutil pid interl_time
+top -H
+printf "%x\n" pid
+jstack pid | grep (16进制pid)
+jdk
+mysql
+联合索引最左原则
+or条件
+
+in条件
+
+子查询换join
+不用！=、<>
+notnull
+like
+
+函数、表达式
+随机：rand、new date()
+limit 1
+dubbo
+shell
+http://wiki.jikexueyuan.com/project/linux/shell-script-two.html
+redis
+http://gudaoqing.blog.51cto.com/7729345/1601114 （Redis原理详解）
+http://blog.csdn.net/a600423444/article/details/8944601（架构设计）
+http://www.redis.net.cn/order/（命令手册）
+netty
+http://www.cnblogs.com/whthomas/p/netty-custom-protocol.html（自定义协议）
+mq
+http://blog.csdn.net/lmj623565791/article/details/37706355
+spring
+Mybatis
+http://blog.csdn.net/luanlouis/article/details/40422941
+TreeMap
+http://blog.csdn.net/chenssy/article/details/26668941
+面试
+http://blog.csdn.net/yanghaitao_1990/article/details/51757308
+http://www.open-open.com/lib/view/open1470916735983.html
+http://blog.csdn.net/bntX2jSQfEHy7/article/details/78279969
