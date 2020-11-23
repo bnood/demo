@@ -1,3 +1,9 @@
+\/\*\*\n     \* (\S*)\n     \*\/
+@ApiModelProperty("$1")
+
+du -lh --max-depth=1
+
+
 VM
 http://blog.hesey.net/
 http://blog.csdn.net/wanghuiqi2008/article/details/50724676（mat）
