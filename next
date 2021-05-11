@@ -1,4 +1,10 @@
-\/\*\*\n     \* (\S*)\n     \*\/
+\/\*\*\n     \* (.*)\n     \*\/
 @ApiModelProperty("$1")
 
+\@ApiModelProperty\(\"(.*)\"\)
+/**
+     * $1
+     */
+     
+     
 du -lh --max-depth=1
